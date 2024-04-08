@@ -21,7 +21,7 @@ Este proyecto es una aplicación web para organizar y gestionar un torneo de aje
 
 ## Autores
 
-- Zacaria DAghri Methqal ([@usuario1](https://github.com/zacariadm)))
+- Zacaria Daghri Methqal ([@usuario1](https://github.com/zacariadm)))
 
 ## Licencia
 
