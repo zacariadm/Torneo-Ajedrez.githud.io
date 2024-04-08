@@ -80,7 +80,7 @@ function inicializarJugadoresInfo() {
 function actualizarPuntos() {
     inicializarJugadoresInfo();
     // Añade aquí tus valores manualmente
-    jugadoresInfo['Tomás'].partidasGanadas = 0;
+    jugadoresInfo['Tomás'].partidasGanadas = 1;
     jugadoresInfo['Cotu'].partidasGanadas = 0;
     jugadoresInfo['Mario Herrera'].partidasGanadas = 0;
     jugadoresInfo['Mario García'].partidasGanadas = 0;
