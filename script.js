@@ -1,5 +1,5 @@
 // Datos de ejemplo para los jugadores
-const jugadores = ['Tomás', 'Cotu', 'Mario Herrera', 'Mario García', 'Jonh Law', 'Samuel'];
+const jugadores = ['Tomás', 'Cotu', 'Mario Herrero', 'Mario García', 'Jonh Law', 'Samuel'];
 
 // Array para almacenar las partidas
 const partidas = [];
@@ -80,9 +80,9 @@ function inicializarJugadoresInfo() {
 function actualizarPuntos() {
     inicializarJugadoresInfo();
     // Añade aquí tus valores manualmente
-    jugadoresInfo['Tomás'].partidasGanadas = 1;
+    jugadoresInfo['Tomás'].partidasGanadas = 0;
     jugadoresInfo['Cotu'].partidasGanadas = 0;
-    jugadoresInfo['Mario Herrera'].partidasGanadas = 0;
+    jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
     jugadoresInfo['Mario García'].partidasGanadas = 0;
     jugadoresInfo['Jonh Law'].partidasGanadas = 0;
     jugadoresInfo['Samuel'].partidasGanadas = 0;
@@ -98,14 +98,36 @@ function actualizarPuntos() {
 function mostrarPuntos() {
     const tbody = document.querySelector('#puntos tbody');
     tbody.innerHTML = '';
+    let maxPartidasGanadas = -1; // Inicializar el máximo de partidas ganadas
+    let jugadorMaxPartidas = ''; // Inicializar el jugador con más partidas ganadas
+
+    // Calcular el máximo de partidas ganadas
+    for (const jugador in jugadoresInfo) {
+        if (jugadoresInfo[jugador].partidasGanadas > maxPartidasGanadas) {
+            maxPartidasGanadas = jugadoresInfo[jugador].partidasGanadas;
+            jugadorMaxPartidas = jugador;
+        }
+    }
+
+    // Mostrar los puntos en la tabla
     for (const jugador in jugadoresInfo) {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${jugador}</td>
-                        <td>${jugadoresInfo[jugador].puntos}</td>
-                        <td>${jugadoresInfo[jugador].partidasGanadas}</td>`;
+        if (maxPartidasGanadas > 0 && jugadoresInfo[jugador].partidasGanadas === maxPartidasGanadas) {
+            // Resaltar el nombre del jugador con más partidas ganadas en color oro
+            tr.innerHTML = `<td style="color: gold">${jugador}</td>
+                            <td>${jugadoresInfo[jugador].puntos}</td>
+                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>`;
+        } else {
+            // Mostrar el nombre del jugador en color normal
+            tr.innerHTML = `<td>${jugador}</td>
+                            <td>${jugadoresInfo[jugador].puntos}</td>
+                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>`;
+        }
         tbody.appendChild(tr);
     }
 }
+
+
 
 // Llamar a la función para generar las partidas al cargar la página
 window.onload = function() {

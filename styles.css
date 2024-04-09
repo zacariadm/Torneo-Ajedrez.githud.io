@@ -5,11 +5,23 @@ body {
     background-color: #f2f2f2;
 }
 
-.header, .footer {
-    background-color: #333;
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, #333, #666); /* Fondo con gradiente lineal */
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    font-family: 'Arial Black', sans-serif; /* Cambio de tipo de letra */
+}
+
+.header {
+    background: linear-gradient(to bottom, #333, #666); /* Fondo con gradiente lineal */
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: 'Arial Black', sans-serif; /* Cambio de tipo de letra */
 }
 
 .main {
@@ -19,17 +31,19 @@ body {
 .tabla-section {
     margin-bottom: 20px;
     text-align: center;
+    padding: 30px;
 }
 
 table {
     width: 90%;
     max-width: 800px;
     border-collapse: collapse;
-    border: 2px solid #333; /* Cambia el color del borde */
+    border: 2px solid #333; /* Borde sólido para mantener la forma */
     border-radius: 5px;
     overflow: hidden;
     margin: 0 auto; /* Agregado para centrar la tabla */
     background-color: #fff; /* Cambia el color de fondo de la tabla */
+    box-shadow: 0 0 10px rgba(113, 113, 113, 0.7); /* Sombra alrededor de todos los bordes */
 }
 
 table th, table td {
@@ -47,7 +61,6 @@ table tbody tr:nth-child(even) {
 }
 
 .footer {
-    position: bottom;
     bottom: 0;
     width: 100%;
 }
@@ -84,4 +97,68 @@ table tbody tr:nth-child(even) {
     font-size: 18px; /* Tamaño de fuente del enlace */
     margin-bottom: 40px; /* Espacio inferior */
     padding: 10px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f2f2f2, #ffffff); /* Fondo con gradiente lineal */
+}
+
+.tabla-section {
+    margin-bottom: 20px;
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    transition: transform 0.3s; /* Transición para el efecto de resaltado */
+}
+
+.tabla-section:hover {
+    transform: scale(1.05); /* Efecto de resaltado al pasar el cursor */
+}
+
+table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    border: 2px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 70%;
+    height: auto;
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efecto de sombra */
+    transition: transform 0.3s; /* Transición para el efecto de paralaje */
+}
+
+.image-container img:hover {
+    transform: translateY(-5px); /* Efecto de paralaje al pasar el cursor */
+}
+
+.instagram-link {
+    display: block;
+    text-align: center;
+    color: #FF1493;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 40px;
+    padding: 10px;
+    transition: transform 0.3s; /* Transición para el efecto de movimiento */
+}
+
+.instagram-link:hover {
+    transform: translateY(-3px); /* Efecto de movimiento al pasar el cursor */
+}
+.gold-text {
+    color: gold;
 }
