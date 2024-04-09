@@ -81,11 +81,11 @@ function actualizarPuntos() {
     inicializarJugadoresInfo();
     // Añade aquí tus valores manualmente
     jugadoresInfo['Tomás'].partidasGanadas = 0;
-    jugadoresInfo['Cotu'].partidasGanadas = 0;
+    jugadoresInfo['Cotu'].partidasGanadas = 1;
     jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
-    jugadoresInfo['Mario García'].partidasGanadas = 0;
+    jugadoresInfo['Mario García'].partidasGanadas = 2;
     jugadoresInfo['Jonh Law'].partidasGanadas = 0;
-    jugadoresInfo['Samuel'].partidasGanadas = 0;
+    jugadoresInfo['Samuel'].partidasGanadas = 1;
 
     // Calcula los puntos
     for (const jugador in jugadoresInfo) {
