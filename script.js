@@ -79,13 +79,25 @@ function inicializarJugadoresInfo() {
 // Función para actualizar los puntos y las partidas ganadas de los jugadores
 function actualizarPuntos() {
     inicializarJugadoresInfo();
-    // Añade aquí tus valores manualmente
+    
+    // Define el número de partidas jugadas manualmente para cada jugador
     jugadoresInfo['Tomás'].partidasGanadas = 0;
+    jugadoresInfo['Tomás'].partidasJugadas = 1; // Añade el número de partidas jugadas manualmente
+
     jugadoresInfo['Cotu'].partidasGanadas = 1;
+    jugadoresInfo['Cotu'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+
     jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
+    jugadoresInfo['Mario Herrero'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+
     jugadoresInfo['Mario García'].partidasGanadas = 2;
+    jugadoresInfo['Mario García'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+
     jugadoresInfo['Jonh Law'].partidasGanadas = 1;
+    jugadoresInfo['Jonh Law'].partidasJugadas = 1; // Añade el número de partidas jugadas manualmente
+
     jugadoresInfo['Samuel'].partidasGanadas = 1;
+    jugadoresInfo['Samuel'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
 
     // Calcula los puntos
     for (const jugador in jugadoresInfo) {
@@ -93,6 +105,7 @@ function actualizarPuntos() {
     }
     mostrarPuntos();
 }
+
 
 // Función para mostrar los puntos en la tabla
 function mostrarPuntos() {
@@ -109,19 +122,21 @@ function mostrarPuntos() {
         }
     }
 
-    // Mostrar los puntos en la tabla
+    // Mostrar los puntos y las partidas jugadas en la tabla
     for (const jugador in jugadoresInfo) {
         const tr = document.createElement('tr');
         if (maxPartidasGanadas > 0 && jugadoresInfo[jugador].partidasGanadas === maxPartidasGanadas) {
             // Resaltar el nombre del jugador con más partidas ganadas en color oro
             tr.innerHTML = `<td style="color: gold">${jugador}</td>
                             <td>${jugadoresInfo[jugador].puntos}</td>
-                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>`;
+                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>
+                            <td>${jugadoresInfo[jugador].partidasJugadas}</td>`; // Mostrar partidas jugadas
         } else {
             // Mostrar el nombre del jugador en color normal
             tr.innerHTML = `<td>${jugador}</td>
                             <td>${jugadoresInfo[jugador].puntos}</td>
-                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>`;
+                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>
+                            <td>${jugadoresInfo[jugador].partidasJugadas}</td>`; // Mostrar partidas jugadas
         }
         tbody.appendChild(tr);
     }
