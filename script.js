@@ -35,7 +35,7 @@ function generarPartidas() {
 
 // Función para asignar días a las partidas
 function asignarDias() {
-    const fechas = ['9 de abril', '11 de abril', '12 de abril', '23 de abril', '22 de abril', '15 de abril', '16 de abril', '17 de abril', '18 de abril', '19 de abril', ' 24 de abril'];
+    const fechas = ['9 de abril', '11 de abril', '10 de abril', '23 de abril', '22 de abril', '15 de abril', '16 de abril', '17 de abril', '18 de abril', '19 de abril', ' 24 de abril'];
     let indexFecha = 0;
     partidas.forEach((partida, index) => {
         partida.dia = fechas[indexFecha];
