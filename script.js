@@ -84,7 +84,7 @@ function actualizarPuntos() {
     jugadoresInfo['Cotu'].partidasGanadas = 1;
     jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
     jugadoresInfo['Mario García'].partidasGanadas = 2;
-    jugadoresInfo['Jonh Law'].partidasGanadas = 0;
+    jugadoresInfo['Jonh Law'].partidasGanadas = 1;
     jugadoresInfo['Samuel'].partidasGanadas = 1;
 
     // Calcula los puntos
