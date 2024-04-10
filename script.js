@@ -82,7 +82,7 @@ function actualizarPuntos() {
     
     // Define el número de partidas jugadas manualmente para cada jugador
     jugadoresInfo['Tomás'].partidasGanadas = 0;
-    jugadoresInfo['Tomás'].partidasJugadas = 1; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Tomás'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Cotu'].partidasGanadas = 1;
     jugadoresInfo['Cotu'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
@@ -96,8 +96,8 @@ function actualizarPuntos() {
     jugadoresInfo['Jonh Law'].partidasGanadas = 1;
     jugadoresInfo['Jonh Law'].partidasJugadas = 1; // Añade el número de partidas jugadas manualmente
 
-    jugadoresInfo['Samuel'].partidasGanadas = 1;
-    jugadoresInfo['Samuel'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Samuel'].partidasGanadas = 2;
+    jugadoresInfo['Samuel'].partidasJugadas = 3; // Añade el número de partidas jugadas manualmente
 
     // Calcula los puntos
     for (const jugador in jugadoresInfo) {
@@ -111,36 +111,36 @@ function actualizarPuntos() {
 function mostrarPuntos() {
     const tbody = document.querySelector('#puntos tbody');
     tbody.innerHTML = '';
-    let maxPartidasGanadas = -1; // Inicializar el máximo de partidas ganadas
-    let jugadorMaxPartidas = ''; // Inicializar el jugador con más partidas ganadas
 
-    // Calcular el máximo de partidas ganadas
-    for (const jugador in jugadoresInfo) {
-        if (jugadoresInfo[jugador].partidasGanadas > maxPartidasGanadas) {
-            maxPartidasGanadas = jugadoresInfo[jugador].partidasGanadas;
-            jugadorMaxPartidas = jugador;
-        }
-    }
+    // Ordenar los jugadores por puntos de mayor a menor
+    const jugadoresOrdenados = Object.keys(jugadoresInfo).sort((a, b) => {
+        return jugadoresInfo[b].puntos - jugadoresInfo[a].puntos; // Cambio en la dirección de ordenamiento
+    });
 
     // Mostrar los puntos y las partidas jugadas en la tabla
-    for (const jugador in jugadoresInfo) {
+    jugadoresOrdenados.forEach((jugador, index) => {
         const tr = document.createElement('tr');
-        if (maxPartidasGanadas > 0 && jugadoresInfo[jugador].partidasGanadas === maxPartidasGanadas) {
-            // Resaltar el nombre del jugador con más partidas ganadas en color oro
-            tr.innerHTML = `<td style="color: gold">${jugador}</td>
-                            <td>${jugadoresInfo[jugador].puntos}</td>
-                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>
-                            <td>${jugadoresInfo[jugador].partidasJugadas}</td>`; // Mostrar partidas jugadas
-        } else {
-            // Mostrar el nombre del jugador en color normal
-            tr.innerHTML = `<td>${jugador}</td>
-                            <td>${jugadoresInfo[jugador].puntos}</td>
-                            <td>${jugadoresInfo[jugador].partidasGanadas}</td>
-                            <td>${jugadoresInfo[jugador].partidasJugadas}</td>`; // Mostrar partidas jugadas
-        }
+        tr.innerHTML = `<td>${jugador}</td>
+                        <td>${jugadoresInfo[jugador].puntos}</td>
+                        <td>${jugadoresInfo[jugador].partidasGanadas}</td>
+                        <td>${jugadoresInfo[jugador].partidasJugadas}</td>`;
         tbody.appendChild(tr);
-    }
+        
+        // Asignar la posición al jugador (index + 1 para que comience en 1 en lugar de 0)
+        const posicion = index + 1;
+        tr.dataset.posicion = posicion;
+
+        // Aplicar color especial a los tres primeros jugadores
+        if (posicion === 1) {
+            tr.style.color = 'gold'; // Oro para el primero
+        } else if (posicion === 2) {
+            tr.style.color = 'silver'; // Plata para el segundo
+        } else if (posicion === 3) {
+            tr.style.color = '#cd7f32'; // Bronce para el tercero
+        }
+    });
 }
+
 // Función para mostrar los resultados de las partidas en la tabla de resultados
 function agregarResultado(dia, enfrentamiento, ganador) {
     const tbody = document.querySelector('#resultados tbody');
@@ -157,6 +157,7 @@ agregarResultado('9 de abril', 'Mario Herrero vs Samuel', 'Samuel');
 agregarResultado('16 de abril', 'Cotu vs Mario García', 'Mario García');
 agregarResultado('19 de abril', 'Mario García vs Mario Herrero', 'Mario García');
 agregarResultado('23 de abril', 'Samuel vs Jonh Law', 'Jonh Law');
+agregarResultado('22 de abril', 'Tomás vs Samuel', 'Samuel');
 
 
 
