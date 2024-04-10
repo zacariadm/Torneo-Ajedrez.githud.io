@@ -126,6 +126,23 @@ function mostrarPuntos() {
         tbody.appendChild(tr);
     }
 }
+// Función para mostrar los resultados de las partidas en la tabla de resultados
+function agregarResultado(dia, enfrentamiento, ganador) {
+    const tbody = document.querySelector('#resultados tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${dia}</td>
+                    <td>${enfrentamiento}</td>
+                    <td>${ganador}</td>`;
+    tbody.appendChild(tr);
+}  
+// Resultados 
+
+agregarResultado('9 de abril', 'Tomás vs Cotu', 'Cotu');
+agregarResultado('9 de abril', 'Mario Herrero vs Samuel', 'Samuel');
+agregarResultado('16 de abril', 'Cotu vs Mario García', 'Mario García');
+agregarResultado('19 de abril', 'Mario García vs Mario Herrero', 'Mario García');
+agregarResultado('23 de abril', 'Samuel vs Jonh Law', 'Jonh Law');
+
 
 
 

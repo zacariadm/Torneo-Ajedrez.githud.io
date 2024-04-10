@@ -162,3 +162,13 @@ table {
 .gold-text {
     color: gold;
 }
+
+.descripcion {
+    margin: 0 auto; /* Centra horizontalmente */
+    max-width: 800px; /* Ancho máximo del recuadro */
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 2px solid #ccc; /* Borde */
+    border-radius: 10px; /* Borde redondeado */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+}
