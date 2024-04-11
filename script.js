@@ -35,29 +35,36 @@ function generarPartidas() {
 
 // Función para asignar días a las partidas
 function asignarDias() {
-    const fechas = ['9 de abril', '11 de abril', '10 de abril', '23 de abril', '22 de abril', '15 de abril', '16 de abril', '17 de abril', '18 de abril', '19 de abril', ' 24 de abril'];
+    const fechas = ['09 de abril', '16 de abril', '15 de abril', '23 de abril', '22 de abril', '15 de abril', '16 de abril', '17 de abril', '18 de abril', '19 de abril', '24 de abril'];
     let indexFecha = 0;
+    let indexAuxiliar = 1; // Variable auxiliar para mantener el orden de las fechas
     partidas.forEach((partida, index) => {
-        partida.dia = fechas[indexFecha];
+        partida.fecha = fechas[indexFecha]; // Cambiar el nombre de la propiedad a "fecha"
+        partida.auxiliar = indexAuxiliar; // Agregar la variable auxiliar
         indexFecha = (indexFecha + 1) % fechas.length;
+        if (indexFecha === 0) {
+            indexAuxiliar++; // Incrementar la variable auxiliar cuando cambia la fecha
+        }
     });
 }
 
-// Función para mostrar las partidas en la tabla ordenadas por fecha
+// Función para mostrar las partidas en la tabla ordenadas por fecha y variable auxiliar
 function mostrarPartidas() {
     const tbody = document.querySelector('#partidas tbody');
     tbody.innerHTML = '';
 
-    // Ordenar las partidas por fecha de manera ascendente
+    // Ordenar las partidas por fecha y variable auxiliar
     const partidasOrdenadas = partidas.sort((a, b) => {
-        const dateA = new Date(a.dia);
-        const dateB = new Date(b.dia);
-        return dateA - dateB;
+        if (a.fecha === b.fecha) {
+            return a.auxiliar - b.auxiliar; // Ordenar por la variable auxiliar si las fechas son iguales
+        } else {
+            return a.fecha.localeCompare(b.fecha); // Ordenar por fecha si son diferentes
+        }
     });
 
     partidasOrdenadas.forEach(partida => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${partida.dia}</td>
+        tr.innerHTML = `<td>${partida.fecha}</td> <!-- Cambiar "dia" a "fecha" -->
                         <td>${partida.jugadores.join(' vs ')}</td>`;
         tbody.appendChild(tr);
     });
@@ -152,12 +159,12 @@ function agregarResultado(dia, enfrentamiento, ganador) {
 }  
 // Resultados 
 
-agregarResultado('9 de abril', 'Tomás vs Cotu', 'Cotu');
-agregarResultado('9 de abril', 'Mario Herrero vs Samuel', 'Samuel');
+agregarResultado('09 de abril', 'Tomás vs Cotu', 'Cotu');
+agregarResultado('09 de abril', 'Mario Herrero vs Samuel', 'Samuel');
 agregarResultado('16 de abril', 'Cotu vs Mario García', 'Mario García');
 agregarResultado('19 de abril', 'Mario García vs Mario Herrero', 'Mario García');
-agregarResultado('23 de abril', 'Samuel vs Jonh Law', 'Jonh Law');
 agregarResultado('22 de abril', 'Tomás vs Samuel', 'Samuel');
+agregarResultado('23 de abril', 'Samuel vs Jonh Law', 'Jonh Law');
 
 
 
