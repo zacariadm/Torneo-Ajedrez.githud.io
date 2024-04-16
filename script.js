@@ -88,23 +88,23 @@ function actualizarPuntos() {
     inicializarJugadoresInfo();
     
     // Define el número de partidas jugadas manualmente para cada jugador
-    jugadoresInfo['Tomás'].partidasGanadas = 0;
-    jugadoresInfo['Tomás'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Tomás'].partidasGanadas = 1;
+    jugadoresInfo['Tomás'].partidasJugadas = 3; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Cotu'].partidasGanadas = 1;
-    jugadoresInfo['Cotu'].partidasJugadas = 3; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Cotu'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
-    jugadoresInfo['Mario Herrero'].partidasJugadas = 2; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Mario Herrero'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Mario García'].partidasGanadas = 2;
     jugadoresInfo['Mario García'].partidasJugadas = 4; // Añade el número de partidas jugadas manualmente
 
-    jugadoresInfo['Jonh Law'].partidasGanadas = 3;
-    jugadoresInfo['Jonh Law'].partidasJugadas = 3; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Jonh Law'].partidasGanadas = 4;
+    jugadoresInfo['Jonh Law'].partidasJugadas = 4; // Añade el número de partidas jugadas manualmente
 
-    jugadoresInfo['Samuel'].partidasGanadas = 3;
-    jugadoresInfo['Samuel'].partidasJugadas = 4; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Samuel'].partidasGanadas = 4;
+    jugadoresInfo['Samuel'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
     // Calcula los puntos
     for (const jugador in jugadoresInfo) {
@@ -162,15 +162,27 @@ function agregarResultado(dia, enfrentamiento, ganador) {
 agregarResultado('09 de abril', 'Tomás vs Cotu', 'Cotu');
 agregarResultado('09 de abril', 'Mario Herrero vs Samuel', 'Samuel');
 
+agregarResultado('15 de abril', 'Tomás vs Mario García', '');
 agregarResultado('15 de abril', 'Mario García vs Samuel', 'Samuel');
-agregarResultado('16 de abril', 'Cotu vs Mario García', 'Mario García');
+agregarResultado('15 de abril', 'Cotu vs Mario Herrero', 'Mario Herrero');
 
-agregarResultado('16 de abril', 'Jonh Law vs Mario García', 'Jonh Law ');
-agregarResultado('17 de abril', 'Cotu vs Jonh Law', 'Jonh Law ');
+agregarResultado('16 de abril', 'Cotu vs Mario García', 'Mario García');
+agregarResultado('16 de abril', 'John Law vs Mario García', 'John Law');
+agregarResultado('16 de abril', 'Tomás vs Mario Herrero', 'Tomás');
+
+agregarResultado('17 de abril', 'Cotu vs John Law', 'John Law');
+
+agregarResultado('18 de abril', 'Cotu vs Samuel', 'Samuel');
 
 agregarResultado('19 de abril', 'Mario García vs Mario Herrero', 'Mario García');
+
 agregarResultado('22 de abril', 'Tomás vs Samuel', 'Samuel');
-agregarResultado('23 de abril', 'Samuel vs Jonh Law', 'Jonh Law');
+
+agregarResultado('23 de abril', 'Samuel vs John', 'John');
+agregarResultado('23 de abril', 'Tomás vs John Law', '');
+
+agregarResultado('24 de abril', 'Mario Herrero vs John Law', 'John Law');
+
 
 
 
