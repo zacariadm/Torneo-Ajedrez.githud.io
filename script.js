@@ -33,6 +33,9 @@ function generarPartidas() {
     }
 }
 
+
+
+
 // Función para asignar días a las partidas
 function asignarDias() {
     const fechas = ['09 de abril', '16 de abril', '15 de abril', '23 de abril', '22 de abril', '15 de abril', '16 de abril', '17 de abril', '18 de abril', '19 de abril', '24 de abril'];
@@ -89,7 +92,7 @@ function actualizarPuntos() {
     
     // Define el número de partidas jugadas manualmente para cada jugador
     jugadoresInfo['Tomás'].partidasGanadas = 1;
-    jugadoresInfo['Tomás'].partidasJugadas = 3; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Tomás'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Cotu'].partidasGanadas = 1;
     jugadoresInfo['Cotu'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
@@ -97,11 +100,11 @@ function actualizarPuntos() {
     jugadoresInfo['Mario Herrero'].partidasGanadas = 0;
     jugadoresInfo['Mario Herrero'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
-    jugadoresInfo['Mario García'].partidasGanadas = 2;
-    jugadoresInfo['Mario García'].partidasJugadas = 4; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Mario García'].partidasGanadas = 3;
+    jugadoresInfo['Mario García'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
-    jugadoresInfo['Jonh Law'].partidasGanadas = 4;
-    jugadoresInfo['Jonh Law'].partidasJugadas = 4; // Añade el número de partidas jugadas manualmente
+    jugadoresInfo['Jonh Law'].partidasGanadas = 5;
+    jugadoresInfo['Jonh Law'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
 
     jugadoresInfo['Samuel'].partidasGanadas = 4;
     jugadoresInfo['Samuel'].partidasJugadas = 5; // Añade el número de partidas jugadas manualmente
@@ -110,8 +113,16 @@ function actualizarPuntos() {
     for (const jugador in jugadoresInfo) {
         jugadoresInfo[jugador].puntos = jugadoresInfo[jugador].partidasGanadas * 3; // Cada partida ganada suma 3 puntos
     }
+// Sumar 10 puntos a jugador indicado
+sumarPuntos('Samuel', 10);
+
+// Restar 5 puntos a jugador indicado
+// restarPuntos('nombre', 0);
     mostrarPuntos();
+    
 }
+
+
 
 
 // Función para mostrar los puntos en la tabla
@@ -148,6 +159,7 @@ function mostrarPuntos() {
     });
 }
 
+
 // Función para mostrar los resultados de las partidas en la tabla de resultados
 function agregarResultado(dia, enfrentamiento, ganador) {
     const tbody = document.querySelector('#resultados tbody');
@@ -162,7 +174,7 @@ function agregarResultado(dia, enfrentamiento, ganador) {
 agregarResultado('09 de abril', 'Tomás vs Cotu', 'Cotu');
 agregarResultado('09 de abril', 'Mario Herrero vs Samuel', 'Samuel');
 
-agregarResultado('15 de abril', 'Tomás vs Mario García', '');
+agregarResultado('15 de abril', 'Tomás vs Mario García', 'Mario García');
 agregarResultado('15 de abril', 'Mario García vs Samuel', 'Samuel');
 agregarResultado('15 de abril', 'Cotu vs Mario Herrero', 'Mario Herrero');
 
@@ -179,19 +191,98 @@ agregarResultado('19 de abril', 'Mario García vs Mario Herrero', 'Mario García
 agregarResultado('22 de abril', 'Tomás vs Samuel', 'Samuel');
 
 agregarResultado('23 de abril', 'Samuel vs John', 'John');
-agregarResultado('23 de abril', 'Tomás vs John Law', '');
+agregarResultado('23 de abril', 'Tomás vs John Law', 'John Law');
 
 agregarResultado('24 de abril', 'Mario Herrero vs John Law', 'John Law');
 
+agregarResultado('La final', 'Samuel vs John Law', 'Samuel');
+
+
+// Función para sumar puntos a un jugador
+function sumarPuntos(jugador, puntosASumar) {
+    jugadoresInfo[jugador].puntos += puntosASumar;
+}
+
+// Función para restar puntos a un jugador
+function restarPuntos(jugador, puntosARestar) {
+    jugadoresInfo[jugador].puntos -= puntosARestar;
+    if (jugadoresInfo[jugador].puntos < 0) {
+        jugadoresInfo[jugador].puntos = 0; // Asegurarse de que los puntos no sean negativos
+    }
+}
+
+// Función para cerrar el mensaje
+function closeMessage() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    const popup = document.getElementById('popup');
+    const confettiContainer = document.getElementById('confetti-container');
+
+    // Mostrar mensaje
+    popup.style.display = 'block';
+
+    // Crear confeti
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti
+    }
+}
+
+// Función para mostrar el mensaje al cargar la página
+function showMessage() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+}
+
+    
+// Función para mostrar el mensaje y el efecto de confeti
+function showMessage() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'block';
+
+    // Lista de colores disponibles
+    const colores = ['#ff0000', '#00ff00', '#0000ff']; // Puedes agregar más colores según sea necesario
+
+    // Crear confeti
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        
+        // Asignar posición aleatoria en el ancho de la pantalla
+        confetti.style.left = Math.random() * 100 + 'vw';
+        
+        // Asignar duración de la animación aleatoria
+        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+        
+        // Asignar retraso de la animación aleatorio
+        confetti.style.animationDelay = Math.random() * 2 + 's';
+        
+        // Asignar color aleatorio
+        const randomColor = colores[Math.floor(Math.random() * colores.length)];
+        confetti.style.backgroundColor = randomColor;
+        
+        // Agregar el confeti al contenedor
+        document.getElementById('confetti-container').appendChild(confetti);
+    }
+}
 
 
 
-
-
-// Llamar a la función para generar las partidas al cargar la página
 window.onload = function() {
     generarPartidas(); // Generar las partidas
     asignarDias(); // Asignar días a las partidas
     mostrarPartidas(); // Mostrar las partidas
     actualizarPuntos(); // Actualizar puntos al cargar la página
+    mostrarPuntos();
+    
+    // Obtener el nombre y los puntos del jugador con más puntos
+    const jugadorConMasPuntos = Object.keys(jugadoresInfo).reduce((a, b) => jugadoresInfo[a].puntos > jugadoresInfo[b].puntos ? a : b);
+    const puntosDelGanador = jugadoresInfo[jugadorConMasPuntos].puntos;
+    
+    // Mostrar el mensaje llamativo al cargar la página
+    showMessage();
+
+    // Lanzar el efecto de confeti
+    confetti.start();
 };

@@ -6,6 +6,8 @@
 <title>Torneo de Ajedrez</title>
 <meta name="description" content="IES Ciudad Escolar - Torneo de Ajedrez">
 <link rel="stylesheet" type="text/css" href="styles.css">
+
+
 </head>
 <body>
     
@@ -13,6 +15,13 @@
     <h1>Torneo de Ajedrez</h1>
 </header>
 
+<div class="overlay" id="overlay">
+    <div class="message-box">
+        <h2>¡Tenemos un ganador!</h2>
+        <p>El ganador del torneo es <strong>Samuel</strong> con 22 puntos.</p>
+        <button onclick="closeMessage()">¡Vale!</button>
+    </div>
+</div>
 <main class="main">
 <br>
     <a href="https://www.instagram.com/estudiantesaece?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="instagram-link">Visita nuestro Instagram</a>
@@ -76,14 +85,17 @@
     </table>
 </section>
 <br>
-
+<div class="confetti-container" id="confetti-container">
+    <!-- Aquí se generará el efecto de confeti -->
+</div>
 <div class="image-container">
     <img src=img/1.jpg alt="Descripción de la imagen">
 </div>
+
 <footer class="footer">
     <p>Asociación de alumnos - IES Ciudad Escolar ©</p>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.1/dist/canvas-confetti.min.js"></script>
 <script src="script.js"></script>
 
 </body>

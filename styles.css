@@ -172,3 +172,79 @@ table {
     padding: 20px; /* Espaciado interno */
     text-align: center; /* Alineación del texto */
 }
+
+
+/* Estilos para el mensaje en medio de la página */
+.message-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.message-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.message-box h2 {
+    color: #FFD700;
+}
+
+.message-box button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.confetti {
+    width: 10px;
+    height: 10px;
+    background-color: #f00; /* Puedes cambiar el color del confeti */
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: confettiAnimation 3s linear infinite; /* Cambia la duración y el tipo de animación según tus preferencias */
+}
+.colores-confeti-1 {
+    background-color: #ff0000; /* Rojo */
+}
+
+.colores-confeti-2 {
+    background-color: #00ff00; /* Verde */
+}
+
+.colores-confeti-3 {
+    background-color: #0000ff; /* Azul */
+}
+
+/* Agrega más colores según sea necesario */
+
+
+@keyframes confettiAnimation {
+    0% {
+        transform: translate(0, 0) rotateZ(0deg);
+    }
+    100% {
+        transform: translateX(-100vw) translateY(100vh) rotateZ(720deg);
+    }
+}
